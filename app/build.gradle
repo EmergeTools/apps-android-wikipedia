@@ -6,6 +6,8 @@ apply plugin: 'kotlinx-serialization'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.emergetools.android'
 
+import groovy.json.JsonSlurper
+
 // Copy the signing.properties.sample file to ~/.sign/signing.properties and adjust the values.
 final File PROD_PROPS_FILE = new File(System.getProperty('user.home'), '.sign/signing.properties')
 final File REPO_PROPS_FILE = new File('repo.properties')
@@ -340,5 +342,6 @@ private static getGitHubEventJson(String path) {
         return null
     }
     def githubEventJsonFile = new File(path)
-    return JsonSlurper().parseText(githubEventJsonFile.readText())
+    def jsonSlurper = new JsonSlurper()
+    return jsonSlurper.parseText(githubEventJsonFile.readText())
 }
