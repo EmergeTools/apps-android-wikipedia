@@ -343,5 +343,5 @@ private static getGitHubEventJson(String path) {
     }
     def githubEventJsonFile = new File(path)
     def jsonSlurper = new JsonSlurper()
-    return jsonSlurper.parseText(githubEventJsonFile.readText())
+    return jsonSlurper.parseText(githubEventJsonFile.text)
 }
