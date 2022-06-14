@@ -287,7 +287,7 @@ project.emerge {
     def branchNameProperty = null
     if (githubEventJson != null) {
         if (System.getenv("GITHUB_EVENT_NAME") == "pull_request") {
-            def pullRequestData = githubEventProperties.pull_request
+            def pullRequestData = githubEventJson.pull_request
             def headData = pullRequestData.head
             def baseData = pullRequestData.base
 
@@ -300,7 +300,7 @@ project.emerge {
             prNumberProperty = System.getenv("GITHUB_REF").split('/')[2]
         } else {
             shaProperty = System.getenv("GITHUB_SHA")
-            baseShaProperty = githubEventProperties.before
+            baseShaProperty = githubEventJson.before
             branchNameProperty = System.getenv("GITHUB_REF").split('/').last()
         }
     }
