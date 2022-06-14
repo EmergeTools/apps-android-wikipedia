@@ -274,10 +274,9 @@ dependencies {
     androidTestUtil 'androidx.test:orchestrator:1.4.1'
 }
 
-emerge {
+project.emerge {
     apiToken = System.getenv("EMERGE_API_TOKEN")
 
-    // Quick return to make sure Kotlin compiles
     def githubEventJson = getGitHubEventJson(System.getenv("GITHUB_EVENT_PATH"))
 
     def shaProperty = null
