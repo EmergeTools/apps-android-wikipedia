@@ -16,6 +16,7 @@ import io.reactivex.rxjava3.plugins.RxJavaPlugins
 import io.reactivex.rxjava3.schedulers.Schedulers
 import org.wikipedia.analytics.FunnelManager
 import org.wikipedia.analytics.InstallReferrerListener
+import org.wikipedia.analytics.MockSDK
 import org.wikipedia.analytics.SessionFunnel
 import org.wikipedia.analytics.eventplatform.EventPlatformClient
 import org.wikipedia.appshortcuts.AppShortcuts
@@ -183,6 +184,7 @@ class WikipediaApp : Application() {
         WikipediaFirebaseMessagingService.updateSubscription()
 
         EventPlatformClient.setUpStreamConfigs()
+        MockSDK.initMockSDK()
     }
 
     /**
